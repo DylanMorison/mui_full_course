@@ -1,4 +1,4 @@
-import { createMuiTheme, makeStyles, ThemeProvider } from "@material-ui/core/styles";
+import { createMuiTheme } from "@material-ui/core/styles";
 
 const arcBlue = "#0b72b9";
 const arcOrange = "#ffba60";

@@ -3,7 +3,7 @@ import { createMuiTheme, makeStyles, ThemeProvider } from "@material-ui/core/sty
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import theme from "./ui/Theme";
-import Header from "../components/ui/Header";
+import Header from "./ui/Header/Header";
 
 const App = () => {
 	return (
