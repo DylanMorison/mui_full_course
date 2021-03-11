@@ -23,7 +23,7 @@ import { FormatListBulleted } from "@material-ui/icons";
 import logo from "../../../assets/logo.svg";
 import { useStyles } from "./Header.styles";
 
-const ElevationScroll = (props) => {
+const ElevationScroll = props => {
 	const { children } = props;
 
 	const trigger = useScrollTrigger({
@@ -36,17 +36,15 @@ const ElevationScroll = (props) => {
 	});
 };
 
-const Header = () => {
+const Header = ({ value, setValue, selectedIndex, setSelectedIndex }) => {
 	const classes = useStyles();
 	const theme = useTheme();
 	const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 	const matches = useMediaQuery(theme.breakpoints.down("md"));
 
 	const [openDrawer, setOpenDrawer] = useState(false);
-	const [value, setValue] = useState(0);
 	const [anchorEl, setAnchorEl] = useState(null);
 	const [open, setOpen] = useState(false);
-	const [selectedIndex, setSelectedIndex] = useState(0);
 
 	const routes = [
 		{ name: "Home", link: "/" },
@@ -116,7 +114,7 @@ const Header = () => {
 		setValue(value);
 	};
 
-	const handleClick = (e) => {
+	const handleClick = e => {
 		setAnchorEl(e.currentTarget);
 		setOpen(true);
 	};
@@ -127,7 +125,7 @@ const Header = () => {
 		setSelectedIndex(i);
 	};
 
-	const handleClose = (e) => {
+	const handleClose = e => {
 		setAnchorEl(null);
 		setOpen(false);
 	};
@@ -146,7 +144,7 @@ const Header = () => {
 				<Tab
 					aria-owns={anchorEl ? "simple-menu" : undefined}
 					aria-haspopup={anchorEl ? "true" : undefined}
-					onMouseOver={(e) => handleClick(e)}
+					onMouseOver={e => handleClick(e)}
 					className={classes.tab}
 					component={Link}
 					to="/services"
@@ -179,7 +177,7 @@ const Header = () => {
 						component={Link}
 						to={option.link}
 						classes={{ root: classes.MenuItem }}
-						onClick={(event) => {
+						onClick={event => {
 							handleMenuItemClick(event, i);
 							setValue(1);
 							handleClose();
